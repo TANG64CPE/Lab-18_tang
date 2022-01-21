@@ -8,25 +8,30 @@ int main(){
 	cout << "Length of A: ";
 	cin >> nA;
 	
-	A = new int;
+	A = new int[nA];
 	cout << "Input Array A: ";
 	for(int i=0; i < nA; i++) cin >> A[i];
+
+	delete A;
 	
 	cout << "Length of B: ";
 	cin >> nB;
 	
-	B = new int;
+	B = new int[nB];
 	cout << "Input Array B: ";
 	for(int i=0; i < nB; i++) cin >> B[i];
+
+	delete B;
 	
-	C = new int;
+	int *C[nA][nB];
 	for(int i=0; i < nA; i++) C[i] = new int;
-	
 	for(int i=0; i < nA; i++){
 		for(int j=0; j < nB; j++) {
-			C = A[i]*B[j];
+			*C = A[i]*B[j];
 		}
 	}
+
+	delete C;
 	
 	cout << "\t";
 	for(int i=0; i < nB; i++){
@@ -41,7 +46,6 @@ int main(){
 		}
 		cout << "\n";
 	}
-     delete A,B,C; 
 
 	return 0;
 }
